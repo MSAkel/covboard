@@ -1,0 +1,20 @@
+header{
+    width: 100%;
+    background-color: #1D3557;
+    padding: 1.5rem;
+    color: white;
+}
+
+.navbar-container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-container .right-side{
+    display: flex;
+    flex-direction: row;
+}
+.navbar-container .right-side p{
+    margin-right: 2rem;
+}
