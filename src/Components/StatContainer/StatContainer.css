@@ -1,8 +1,8 @@
 .stat-container{
     /* border: 1px solid black; */
     border-radius: 6px;
-    box-shadow: 0 12px 24px 0 hsl(220, 15%, 88%), 0 3px 9px 0 hsl(220, 15%, 94%);
-    min-width: 300px;
+    /* box-shadow: 0 12px 24px 0 hsl(220, 15%, 88%), 0 3px 9px 0 hsl(220, 15%, 94%); */
+    min-width: 250px;
 }
 
 .stat-container div{
@@ -14,21 +14,30 @@
 }
 
 .stat-container:nth-of-type(1){
-    background-color: #CFE4FF;
+    /* background-color: #CFE4FF; */
+    color: #CFE4FF;
 }
 
 .stat-container:nth-of-type(2){
-    background-color: #B2FFCE;
+    /* background-color: #B2FFCE; */
+    color: #B2FFCE;
 }
 
 .stat-container:nth-of-type(3){
-    background-color: #FFFACF;
+    /* background-color: #FFFACF; */
+    color: #FFFACF;
 }
 
 .stat-container:nth-of-type(4){
-    background-color: #CBB2FF;
+    /* background-color: #CBB2FF; */
+    color: #CBB2FF;
 }
 
 .stat-container:nth-of-type(5){
-    background-color: #FFCFCF;
+    /* background-color: #FFCFCF; */
+    color: #FFCFCF;
+}
+
+.stat-container{
+    background-color: #385388;
 }

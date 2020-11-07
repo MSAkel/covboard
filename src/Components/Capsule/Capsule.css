@@ -1,0 +1,16 @@
+.capsule-container{
+    border: 1px solid grey;
+    border-radius: 26px;
+    min-width: 100px;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+.capsule-content{
+    padding: 0.55rem 1rem;
+    text-align: center;
+}
+
+.active{
+    background-color: #E63946;
+}

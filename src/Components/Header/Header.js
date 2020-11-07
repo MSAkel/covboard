@@ -5,7 +5,7 @@ function Header() {
     <header>
         <nav className="navbar-container">
             <div className="left-side">
-                <p>CovCharts</p>
+                <p>CovBoard</p>
             </div>
             <div className="right-side">
                 <p>Other 1</p>

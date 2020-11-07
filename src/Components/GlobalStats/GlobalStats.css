@@ -1,6 +1,13 @@
 .global-stats-container{
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--bg-colour);
+    border-radius: 12px;
+}
+
+.global-stats-cards{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
