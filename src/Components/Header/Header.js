@@ -1,10 +1,12 @@
 import './Header.css';
+import logo from '../../imgs/logo.png'
 
 function Header() {
   return (
     <header>
         <nav className="navbar-container">
             <div className="left-side">
+                <img src={logo} />
                 <h3>CovBoard</h3>
             </div>
             <div className="right-side">

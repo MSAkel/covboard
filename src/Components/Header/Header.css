@@ -1,7 +1,7 @@
 header{
     width: 100%;
     background-color: var(--tertiary-colour);
-    padding: 0.75rem 0;
+    /* padding: 0.25rem 0; */
     color: white;
 }
 
@@ -12,7 +12,16 @@ header{
     align-items: center;
     margin: 0 auto;
 }
-
+.navbar-container .left-side{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-container .left-side img{
+    max-width: 64px;
+    margin-right: 0.25rem;
+}
 .navbar-container .right-side{
     display: flex;
     flex-direction: row;
