@@ -22,3 +22,8 @@ html {
 body {
   background-color: #24385D;
 }
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}

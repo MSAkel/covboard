@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    borderRadius: 8,
+    borderRadius: 9,
   },
   table: {
     maxHeight: 750,
