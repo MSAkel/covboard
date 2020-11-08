@@ -12,6 +12,11 @@ tbody.MuiTableBody-root >:nth-of-type(2n)
     max-width: '100%';
 }
 
+.spinner-container{
+    margin: 5rem auto;
+    text-align: center;
+    width: 100%;
+}
 /* .MuiPaper-root.MuiPaper-elevation2.MuiPaper-rounded {
     background-color: transparent;
     box-shadow: none;

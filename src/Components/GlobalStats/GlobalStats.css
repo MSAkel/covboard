@@ -8,6 +8,6 @@
 .global-stats-cards{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-top: 1rem;
+    /* justify-content: space-between; */
+    margin-top: 0.5rem;
 }

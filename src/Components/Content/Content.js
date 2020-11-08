@@ -34,7 +34,7 @@ function Content() {
       setCountriesList(data.regions.world.list)
   }
 
-  const onSelectRegion = (name, active) => {
+  const onSelectRegion = name => {
     setSelection(name)
   }
 
@@ -43,7 +43,7 @@ function Content() {
   // }, [])
 
   useEffect(() => {
-    if(!countriesList)getStats()
+    if(!countriesList.length) getStats()
   }, [selection])
 
   const regionsCapsules = regions && regions.map((region =>

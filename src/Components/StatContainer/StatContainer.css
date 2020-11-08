@@ -3,10 +3,11 @@
     border-radius: 6px;
     /* box-shadow: 0 12px 24px 0 hsl(220, 15%, 88%), 0 3px 9px 0 hsl(220, 15%, 94%); */
     min-width: 250px;
+    margin-right: 2rem;
 }
 
 .stat-container div{
-    padding: 1.25rem;
+    padding: 1rem;
 }
 
 .stat-container h2{

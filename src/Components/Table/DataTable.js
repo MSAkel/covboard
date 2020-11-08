@@ -6,6 +6,7 @@ import MuiTableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import './DataTable.css';
 import EnhancedTableHead from '../EnhancedTableHead';
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function DataTable({countries}) {
+function DataTable({countries, regionsData, selection}) {
   const classes = useStyles();
   const [rows, setRows] = useState([])
   const [order, setOrder] = React.useState("desc");
@@ -110,9 +111,9 @@ function DataTable({countries}) {
     },
   ];
 
-  const createData = () => {
+  const createData = countriesList => {
     const list = []
-    countries.forEach(country => {
+    countriesList.forEach(country => {
       if(!country.state && country.country){
       const info = {
         country: country.country,
@@ -138,13 +139,49 @@ function DataTable({countries}) {
     }
   }
 
+  const filterCountries = () => {
+    if(selection === "World") {
+      createData(countries)
+      return;
+    }
+    let regionObj = ''
+    // get the matching region object of the current selected region
+    for(let region in regionsData) {
+      // console.log(region, selection)
+      if(selection.toLowerCase().replace(/\s/g, '') === region) {
+        regionObj = regionsData[region]
+        break
+      }
+    }
+    // console.log(regionObj)
+    let filteredList = []
+    for(let code of regionObj.list){
+      const country = countries.find(country => country.country_code === code)
+      if(country) filteredList.push(country)
+    }
+    // console.log(countries)
+    // console.log(filteredList)
+    createData(filteredList)
+  }
+
+  // useEffect(() => {
+  //   createData()
+  // }, [countries])
+
   useEffect(() => {
-    createData()
-  }, [countries])
-  
+    if(regionsData && selection && countries) filterCountries()
+  }, [regionsData, selection, countries])
+
   return (
     <div className="table-container">
-      <Paper className={classes.paper}>
+      {!rows.length ?
+       ( 
+        <div className="spinner-container">
+          <CircularProgress color="secondary" /> 
+        </div>
+       )
+       : (
+       <Paper className={classes.paper}>
         <TableContainer className={classes.table}>
           <Table
             stickyHeader 
@@ -180,7 +217,7 @@ function DataTable({countries}) {
             </TableBody>
           </Table>
         </TableContainer>
-      </Paper>
+      </Paper>)}
     </div>
   );
 }
