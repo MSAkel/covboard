@@ -17,7 +17,7 @@
 .capsules-list{
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
+  flex-wrap: wrap;
   margin: 1.5rem 0;
 }
 
@@ -39,12 +39,28 @@
 .cards{
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
+  flex-wrap: wrap;
   margin: 0.75rem 0 0;
 }
 
 .cards .stat-container{
-  /* box-shadow: 0 12px 24px 0 hsl(220, 15%, 88%), 0 3px 9px 0 hsl(220, 15%, 94%); */
-  min-width: 200px;
-  margin-right: 2rem;
+  min-width: 250px;
+  /* margin-right: 2rem; */
+}
+
+
+@media (max-width: 714px) {
+  .active-selection-section,
+  .active-selection-section .selection h1 {
+      text-align: center;
+      margin: 0 auto;
+  }
+  .cards{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .cards .stat-container {
+    margin-right: 0;
+  }
 }

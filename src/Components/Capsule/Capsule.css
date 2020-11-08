@@ -3,6 +3,7 @@
     border-radius: 26px;
     min-width: 100px;
     cursor: pointer;
+    margin: 0.5rem 0; 
     margin-right: 2rem;
 }
 
@@ -20,4 +21,10 @@
 .active{
     background-color: #E63946;
     color: #FFF;
+}
+
+@media (max-width: 702px) {
+    .capsule-container{
+        margin-right: 1rem;
+    }
 }

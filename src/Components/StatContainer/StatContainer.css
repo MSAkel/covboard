@@ -1,9 +1,10 @@
 .stat-container{
-    /* border: 1px solid black; */
+    border: 1px solid #222;
     border-radius: 6px;
-    /* box-shadow: 0 12px 24px 0 hsl(220, 15%, 88%), 0 3px 9px 0 hsl(220, 15%, 94%); */
     min-width: 250px;
     margin-right: 2rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--primary-colour);
 }
 
 .stat-container div{
@@ -34,6 +35,8 @@
     color: #FF6060;
 }
 
-.stat-container{
-    background-color: var(--primary-colour);
+@media (max-width: 643px) {
+    .stat-container {
+        margin-right: 0;
+    }
 }

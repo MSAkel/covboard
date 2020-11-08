@@ -1,6 +1,5 @@
 .global-stats-container{
     margin-top: 2rem;
-    /* padding: 2rem; */
     background-color: var(--bg-colour);
     border-radius: 12px;
 }
@@ -8,6 +7,17 @@
 .global-stats-cards{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    flex-wrap: wrap;
     margin-top: 0.5rem;
+}
+
+@media (max-width: 643px) {
+    .global-stats-container {
+        text-align: center;
+    }
+    .global-stats-cards{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
