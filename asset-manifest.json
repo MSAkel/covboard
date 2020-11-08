@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/covcharts/static/css/main.e0077e56.chunk.css",
-    "main.js": "/covcharts/static/js/main.fe487e21.chunk.js",
-    "main.js.map": "/covcharts/static/js/main.fe487e21.chunk.js.map",
+    "main.css": "/covcharts/static/css/main.f29cd12c.chunk.css",
+    "main.js": "/covcharts/static/js/main.94f11d90.chunk.js",
+    "main.js.map": "/covcharts/static/js/main.94f11d90.chunk.js.map",
     "runtime-main.js": "/covcharts/static/js/runtime-main.b8d2251b.js",
     "runtime-main.js.map": "/covcharts/static/js/runtime-main.b8d2251b.js.map",
     "static/js/2.cd70d11a.chunk.js": "/covcharts/static/js/2.cd70d11a.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.001abbaa.chunk.js": "/covcharts/static/js/3.001abbaa.chunk.js",
     "static/js/3.001abbaa.chunk.js.map": "/covcharts/static/js/3.001abbaa.chunk.js.map",
     "index.html": "/covcharts/index.html",
-    "static/css/main.e0077e56.chunk.css.map": "/covcharts/static/css/main.e0077e56.chunk.css.map",
+    "static/css/main.f29cd12c.chunk.css.map": "/covcharts/static/css/main.f29cd12c.chunk.css.map",
     "static/js/2.cd70d11a.chunk.js.LICENSE.txt": "/covcharts/static/js/2.cd70d11a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b8d2251b.js",
     "static/js/2.cd70d11a.chunk.js",
-    "static/css/main.e0077e56.chunk.css",
-    "static/js/main.fe487e21.chunk.js"
+    "static/css/main.f29cd12c.chunk.css",
+    "static/js/main.94f11d90.chunk.js"
   ]
 }
