@@ -9,7 +9,8 @@ import TableSortLabel from "@material-ui/core/TableSortLabel";
 const useStyles = makeStyles(() => ({
     root: {
       backgroundColor: "#385388",
-      color: "white"
+      color: "white",
+      borderBottom: "none"
     }
   }));
 

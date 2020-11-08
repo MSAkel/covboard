@@ -1,9 +1,15 @@
 .capsule-container{
-    border: 1px solid grey;
+    border: none;
     border-radius: 26px;
     min-width: 100px;
     cursor: pointer;
     margin-right: 2rem;
+}
+
+.capsule-container:hover{
+    transition-duration: 200ms;
+    color: #FFF;
+    background-color: #e07f88;
 }
 
 .capsule-content{
@@ -13,4 +19,5 @@
 
 .active{
     background-color: #E63946;
+    color: #FFF;
 }

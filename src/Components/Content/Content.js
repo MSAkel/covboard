@@ -8,9 +8,11 @@ import './Content.css';
 function Content() {
   const [selection, setSelection] = useState("World")
   const [regions, setRegions] = useState([])
+  const [regionsData, setRegionsData] = useState([])
   const [countriesList, setCountriesList] = useState([])
   // Global stats
   const [gs, setGs] = useState()
+  // const [selected]
 
   const getStats = async() => {
     const URL = "https://cov19.cc/report.json"
@@ -27,6 +29,7 @@ function Content() {
       regionsList.sort()
       
       setRegions(regionsList)
+      setRegionsData(data.regions)
       setGs(data.regions.world.totals)
       setCountriesList(data.regions.world.list)
   }
@@ -35,16 +38,21 @@ function Content() {
     setSelection(name)
   }
 
-  useEffect(() => {
-    getStats()
-  }, [])
+  // useEffect(() => {
+  //   getStats()
+  // }, [])
 
   useEffect(() => {
-    getStats()
+    if(!countriesList)getStats()
   }, [selection])
 
   const regionsCapsules = regions && regions.map((region =>
-    <Capsule key={region} region={region} onSelectRegion={onSelectRegion}/>
+    <Capsule 
+     key={region} 
+     styling={selection === region ? "capsule-container active" : 'capsule-container'}
+     region={region} 
+     onSelectRegion={onSelectRegion}
+    />
   ))
 
   return (
@@ -57,11 +65,6 @@ function Content() {
           <div className="active-selection-section">
             <div className="selection">
               <h1>{selection}</h1>
-              {/* <div className="toggle-options">
-                <h3>Total</h3>
-                <p className="divider">|</p>
-                <h3>Daily</h3>
-              </div> */}
             </div>
             <div className="cards">
               <StatContainer title="Confirmed cases" total={gs ? gs.confirmed.toLocaleString() : "No data"}/>
@@ -70,9 +73,8 @@ function Content() {
               <StatContainer title="Critical" total={gs ? gs.critical.toLocaleString() : "No data"}/>
               <StatContainer title="Deaths" total={gs ? gs.deaths.toLocaleString() : "No data"}/>
             </div>
-          </div>
-          
-          <DataTable countries={countriesList}/>
+          </div>       
+          <DataTable countries={countriesList} regionsData={regionsData} selection={selection}/>
         </div>
     </div>
   );

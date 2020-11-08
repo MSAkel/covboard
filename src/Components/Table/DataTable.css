@@ -1,11 +1,11 @@
 tbody.MuiTableBody-root >:nth-of-type(1n)
 {
-    background-color: #E1E8FF;
+    background-color: #434B87;
 }
 
 tbody.MuiTableBody-root >:nth-of-type(2n)
 {
-    background-color: #D6D9FF;
+    background-color: #565EA1;
 }
 
 .table-container{
@@ -27,30 +27,34 @@ svg.MuiSvgIcon-root.MuiTableSortLabel-icon:hover{
     color: #DDD !important;
   }
 
-  td.MuiTableCell-root.MuiTableCell-body:nth-of-type(2){
-      color: #3e92ff !important;
-  }
+td.MuiTableCell-root.MuiTableCell-body:nth-of-type(1){
+    color: #FFF !important;
+}
 
-  td.MuiTableCell-root.MuiTableCell-body:nth-of-type(3){
-    color: #3e92ff !important;
+td.MuiTableCell-root.MuiTableCell-body:nth-of-type(2){
+    color: #6EADFF !important;
+}
+
+td.MuiTableCell-root.MuiTableCell-body:nth-of-type(3){
+    color: #6EADFF !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(4){
-    color: #36b966 !important;
+    color: #74FFA7 !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(5){
-    color: #ffa825 !important;
+    color: #FFF072 !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(6){
-    color: #9a6cff !important;
+    color: #DFBFFF !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(7){
-    color: #ff3d3d !important;
+    color: #FF6060 !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(8){
-    color: #ff3d3d !important;
+    color: #FF6060 !important;
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
+import MuiTableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
@@ -36,17 +36,23 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
+const TableCell = withStyles({
+  root: {
+    borderBottom: "none"
+  }
+})(MuiTableCell);
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     width: "100%",
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    borderRadius: 8
+    borderRadius: 8,
   },
   table: {
     maxHeight: 750,
     backgroundColor: "#385388",
-    borderRadius: 8
+    borderRadius: 8,
   }
 }));
 

@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import './Capsule.css';
 
-function Capsule({region, onSelectRegion}) {
+function Capsule({region, onSelectRegion, styling}) {
   const [active, setActive] = useState(false)
 
   const handleClick = ev => {
@@ -14,7 +14,7 @@ function Capsule({region, onSelectRegion}) {
   return (
     <button 
       name={region} 
-      className={active ? 'capsule-container active' : 'capsule-container '} 
+      className={styling} 
       onClick={ev => handleClick(ev)}
     >
       <div className="capsule-content">

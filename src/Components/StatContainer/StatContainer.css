@@ -14,30 +14,25 @@
 }
 
 .stat-container:nth-of-type(1){
-    /* background-color: #CFE4FF; */
-    color: #CFE4FF;
+    color: #6EADFF;
 }
 
 .stat-container:nth-of-type(2){
-    /* background-color: #B2FFCE; */
-    color: #B2FFCE;
+    color: #74FFA7;
 }
 
 .stat-container:nth-of-type(3){
-    /* background-color: #FFFACF; */
-    color: #FFFACF;
+    color: #FFF072;
 }
 
 .stat-container:nth-of-type(4){
-    /* background-color: #CBB2FF; */
-    color: #CBB2FF;
+    color: #DFBFFF;
 }
 
 .stat-container:nth-of-type(5){
-    /* background-color: #FFCFCF; */
-    color: #FFCFCF;
+    color: #FF6060;
 }
 
 .stat-container{
-    background-color: #385388;
+    background-color: var(--primary-colour);
 }

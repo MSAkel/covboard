@@ -1,6 +1,6 @@
 .global-stats-container{
     margin-top: 2rem;
-    padding: 2rem;
+    /* padding: 2rem; */
     background-color: var(--bg-colour);
     border-radius: 12px;
 }

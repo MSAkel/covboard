@@ -5,11 +5,16 @@ function Header() {
     <header>
         <nav className="navbar-container">
             <div className="left-side">
-                <p>CovBoard</p>
+                <h3>CovBoard</h3>
             </div>
             <div className="right-side">
-                <p>Other 1</p>
-                <p>Other 2</p>
+                <button className="coffee-button">
+                  <a href="https://www.buymeacoffee.com/mohammedakel" target="_blank">
+                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-red.png" alt="Buy Me A Coffee" className="coffee-img" >
+                    </img>
+                  </a>
+                </button>
+                {/* <p>Other 2</p> */}
             </div>  
         </nav>
     </header>

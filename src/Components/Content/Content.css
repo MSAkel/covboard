@@ -6,9 +6,9 @@
 .region-container{
   margin: 3rem 0;
   padding: 0 2rem;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   border-radius: 12px;
-  background-color: var(--bg-colour);
+  background-color: var(--secondary-colour);
 
   display: flex;
   flex-direction: column;
