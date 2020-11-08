@@ -7,9 +7,11 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from '@material-ui/core/CircularProgress';
+import ReactCountryFlag from "react-country-flag"
 
 import './DataTable.css';
 import EnhancedTableHead from '../EnhancedTableHead';
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -48,11 +50,11 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
-    borderRadius: 9,
+    borderRadius: 12,
   },
   table: {
     maxHeight: 750,
-    backgroundColor: "#385388",
+    // backgroundColor: "#385388",
     borderRadius: 8,
   }
 }));
@@ -116,6 +118,7 @@ function DataTable({countries, regionsData, selection}) {
     countriesList.forEach(country => {
       if(!country.state && country.country){
       const info = {
+        country_code: country.country_code,
         country: country.country,
         confirmed: country.confirmed,
         daily_confirmed: country.daily_confirmed,
@@ -202,7 +205,7 @@ function DataTable({countries, regionsData, selection}) {
                 (row) => {
                   return (
                     <TableRow tabIndex={-1} key={row.country}>
-                      <TableCell align="left">{row.country}</TableCell>
+                      <TableCell align="left"><ReactCountryFlag countryCode={row.country_code.toUpperCase()} className="flag"/>{row.country}</TableCell>
                       <TableCell align="left">{checkData(row.confirmed)}</TableCell>
                       <TableCell align="left">{checkData(row.daily_confirmed)}</TableCell>
                       <TableCell align="left">{checkData(row.recovered)}</TableCell>

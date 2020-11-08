@@ -1,11 +1,11 @@
 tbody.MuiTableBody-root >:nth-of-type(1n)
 {
-    background-color: #434B87;
+    background-color: var(--secondary-colour);
 }
 
 tbody.MuiTableBody-root >:nth-of-type(2n)
 {
-    background-color: #565EA1;
+    background-color: var(--tertiary-colour);
 }
 
 .table-container{
@@ -21,6 +21,11 @@ tbody.MuiTableBody-root >:nth-of-type(2n)
     background-color: transparent;
     box-shadow: none;
 } */
+
+.flag{
+    font-size: 21px !important;
+    margin-right: 0.3rem;
+}
 
 span.MuiTableSortLabel-root.MuiTableSortLabel-active,
 svg.MuiSvgIcon-root.MuiTableSortLabel-icon{

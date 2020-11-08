@@ -11,6 +11,7 @@
     transition-duration: 200ms;
     color: #FFF;
     background-color: #e07f88;
+    box-shadow: 0px 2px 6px hsl(0, 5%, 7%);
 }
 
 .capsule-content{
