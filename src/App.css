@@ -5,8 +5,11 @@
 }
 
 :root{
-  --primary-colour: #0f3460;
+  /* --primary-colour: #0f3460;
   --secondary-colour: #1d2a50;
+  --tertiary-colour: #334C77; */
+  --primary-colour: #202326;
+  --secondary-colour: #24272b;
   --tertiary-colour: #334C77;
   --accent-colour: #E94560;
 }
@@ -16,7 +19,8 @@ html {
 }
 
 body {
-  background-color: #1a1e2e;
+  /* background-color: #1a1e2e; */
+  background-color: #1F2124;
 }
 
 a {

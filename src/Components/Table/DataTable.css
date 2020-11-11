@@ -5,7 +5,8 @@ tbody.MuiTableBody-root >:nth-of-type(1n)
 
 tbody.MuiTableBody-root >:nth-of-type(2n)
 {
-    background-color: var(--tertiary-colour);
+    /* background-color: var(--tertiary-colour); */
+    background-color: var(--primary-colour);
 }
 
 .table-container{
