@@ -15,7 +15,6 @@ import ReactCountryFlag from "react-country-flag";
 import './DataTable.css';
 import EnhancedTableHead from '../EnhancedTableHead';
 
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -62,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function DataTable({countries, regionsData, selection}) {
+function DataTable({countries, regionsData, selection, regionStats}) {
   const classes = useStyles();
   const [rows, setRows] = useState([])
   const [order, setOrder] = React.useState("desc");
@@ -118,9 +117,7 @@ function DataTable({countries, regionsData, selection}) {
 
   const createData = countriesList => {
     const list = []
-    console.log(countriesList)
     countriesList.forEach(country => {
-      // if(!country.state && country.country){
         if(country.country){
         let info = {
           country_code: country.country_code,
@@ -135,14 +132,10 @@ function DataTable({countries, regionsData, selection}) {
         }
         if(country.state) info = {...info, country: country.state};
         list.push(info)
-        console.log(<ReactCountryFlag countryCode={country.country_code.toUpperCase()} className="flag"/>)
       } 
-      // else if(country.state && country.country) {
-
-      // }
     })
-
     setRows(list)
+    regionStats(list)
   }
 
   const checkData = data => {
@@ -161,20 +154,17 @@ function DataTable({countries, regionsData, selection}) {
     let regionObj = ''
     // get the matching region object of the current selected region
     for(let region in regionsData) {
-      // console.log(region, selection)
       if(selection.toLowerCase().replace(/\s/g, '') === region) {
         regionObj = regionsData[region]
         break
       }
     }
-    // console.log(regionObj)
+
     let filteredList = []
     for(let code of regionObj.list){
       const country = countries.find(country => country.country_code === code)
       if(country) filteredList.push(country)
     }
-    // console.log(countries)
-    // console.log(filteredList)
     createData(filteredList)
   }
 
