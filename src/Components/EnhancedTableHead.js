@@ -24,9 +24,11 @@ function EnhancedTableHead(props) {
     return (
       <TableHead >
         <TableRow>
+        {/* <TableCell padding="none" className={classes.root} style={{backgroundColor: '#0f3460'}}>
+        </TableCell> */}
           {headCells.map((headCell) => (
             <TableCell
-                className={classes.root}
+              className={classes.root}
               key={headCell.id}
               sortDirection={orderBy === headCell.id ? order : false}
             >

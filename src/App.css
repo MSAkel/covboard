@@ -6,7 +6,7 @@
 
 :root{
   --primary-colour: #0f3460;
-  --secondary-colour: #16213E;
+  --secondary-colour: #1d2a50;
   --tertiary-colour: #334C77;
   --accent-colour: #E94560;
 }
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  background-color: #1A1A2E;
+  background-color: #1a1e2e;
 }
 
 a {

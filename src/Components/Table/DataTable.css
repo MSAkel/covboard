@@ -36,6 +36,16 @@ span.MuiTableSortLabel-root:hover,
 svg.MuiSvgIcon-root.MuiTableSortLabel-icon:hover{
     color: #DDD !important;
   }
+/* 
+td.MuiTableCell-root.MuiTableCell-body:nth-of-type(1){
+    color: #FFF;
+    padding-left: 0.3rem;
+
+}
+td.MuiTableCell-root.MuiTableCell-body:nth-of-type(1) .MuiSvgIcon-root:hover{
+    cursor: pointer;
+    color: #FFFF00 !important;
+} */
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(1){
     color: #FFF !important;
@@ -58,7 +68,7 @@ td.MuiTableCell-root.MuiTableCell-body:nth-of-type(5){
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(6){
-    color: #DFBFFF !important;
+    color: #bb76ff !important;
 }
 
 td.MuiTableCell-root.MuiTableCell-body:nth-of-type(7){

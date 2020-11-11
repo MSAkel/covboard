@@ -1,7 +1,6 @@
 header{
     width: 100%;
     background-color: var(--secondary-colour);
-    /* padding: 0.25rem 0; */
     color: white;
 }
 
@@ -18,10 +17,19 @@ header{
     justify-content: center;
     align-items: center;
 }
-.navbar-container .left-side img{
+.navbar-container .left-side img.logo{
     max-width: 64px;
     margin-right: 0.25rem;
 }
+
+.navbar-container .left-side h3{
+    margin-right: 2rem;
+}
+.navbar-container .left-side h3:hover{
+    cursor: pointer;
+    color: var(--accent-colour)
+}
+
 .navbar-container .right-side{
     display: flex;
     flex-direction: row;

@@ -7,7 +7,10 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ReactCountryFlag from "react-country-flag"
+import ReactCountryFlag from "react-country-flag";
+
+// import StarIcon from '@material-ui/icons/Star';
+// import Tooltip from '@material-ui/core/Tooltip';
 
 import './DataTable.css';
 import EnhancedTableHead from '../EnhancedTableHead';
@@ -115,22 +118,30 @@ function DataTable({countries, regionsData, selection}) {
 
   const createData = countriesList => {
     const list = []
+    console.log(countriesList)
     countriesList.forEach(country => {
-      if(!country.state && country.country){
-      const info = {
-        country_code: country.country_code,
-        country: country.country,
-        confirmed: country.confirmed,
-        daily_confirmed: country.daily_confirmed,
-        recovered: country.recovered,
-        active: country.confirmed - (country.recovered + country.deaths) ,
-        critical: country.critical,
-        deaths: country.deaths,
-        daily_deaths: country.daily_deaths
-      }
-      list.push(info)
-    }
+      // if(!country.state && country.country){
+        if(country.country){
+        let info = {
+          country_code: country.country_code,
+          country: country.country,
+          confirmed: country.confirmed,
+          daily_confirmed: country.daily_confirmed,
+          recovered: country.recovered,
+          active: country.confirmed - (country.recovered + country.deaths) ,
+          critical: country.critical,
+          deaths: country.deaths,
+          daily_deaths: country.daily_deaths
+        }
+        if(country.state) info = {...info, country: country.state};
+        list.push(info)
+        console.log(<ReactCountryFlag countryCode={country.country_code.toUpperCase()} className="flag"/>)
+      } 
+      // else if(country.state && country.country) {
+
+      // }
     })
+
     setRows(list)
   }
 
@@ -167,9 +178,9 @@ function DataTable({countries, regionsData, selection}) {
     createData(filteredList)
   }
 
-  // useEffect(() => {
-  //   createData()
-  // }, [countries])
+  // const pinCountry = countryCode => {
+
+  // }
 
   useEffect(() => {
     if(regionsData && selection && countries) filterCountries()
@@ -201,10 +212,10 @@ function DataTable({countries, regionsData, selection}) {
               headCells={columns}
             />
             <TableBody>
-              {stableSort(rows, getComparator(order, orderBy)).map(
-                (row) => {
+              {stableSort(rows, getComparator(order, orderBy)).map(row => {
                   return (
                     <TableRow tabIndex={-1} key={row.country}>
+                      {/* <TableCell align="left" padding="none" onClick={() => pinCountry(row.country_code)}> <Tooltip title="Pin" placement="left"><StarIcon /></Tooltip></TableCell> */}
                       <TableCell align="left"><ReactCountryFlag countryCode={row.country_code.toUpperCase()} className="flag"/>{row.country}</TableCell>
                       <TableCell align="left">{checkData(row.confirmed)}</TableCell>
                       <TableCell align="left">{checkData(row.daily_confirmed)}</TableCell>

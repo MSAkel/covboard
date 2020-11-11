@@ -1,0 +1,56 @@
+.map-svg path{
+    fill: white;
+}
+
+.map-svg path:hover{
+    fill: red;
+}
+
+path.jvectormap-region {
+    cursor: pointer;
+}
+
+.jvectormap-tip {
+    position: absolute;
+    display: none;
+    /* border: solid 1px #CDCDCD; */
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: var(--secondary-colour);
+    color: white;
+    font-family: sans-serif, Verdana;
+    font-size: smaller;
+    padding: 6px;
+    z-index:11;
+}
+
+.jvectormap-tip h1 {
+    margin: 1rem 0 1rem 0.2rem;
+}
+
+.jvectormap-tip h3 {
+    margin: 0.65rem 2rem 0 0.2rem;
+}
+
+.jvectormap-tip h3:nth-of-type(1) {
+    color: #6EADFF;
+}
+.jvectormap-tip h3:nth-of-type(2) {
+    color: #74FFA7;
+}
+.jvectormap-tip h3:nth-of-type(3) {
+    color: #FFF072;
+}
+.jvectormap-tip h3:nth-of-type(4) {
+    color: #bb76ff;
+}
+.jvectormap-tip h3:nth-of-type(5) {
+    color: #FF6060;
+}
+
+
+ .region-data {
+    width: 100px;
+ }

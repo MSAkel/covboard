@@ -4,13 +4,18 @@ import Footer from '../../Components/Footer/Footer';
 
 import './MainPage.css';
 
-function MainPage() {
+function MainPage({regions, regionsData, countriesList, gs}) {
   return (
-    <div>
-        <Header />
-        <Content />
-        <Footer />
-    </div>
+    <>
+      <Header />
+      <Content 
+        regions={regions} 
+        regionsData={regionsData} 
+        countriesList={countriesList} 
+        gs={gs}
+      />
+      <Footer />
+    </>
   );
 }
 
