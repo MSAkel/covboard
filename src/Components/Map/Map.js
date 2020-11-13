@@ -4,11 +4,12 @@ import { VectorMap } from "react-jvectormap"
 
 import './Map.css'
 
-const Map = ({countriesList}) => {
+const Map = ({countriesList, selectedStat}) => {
   const inputRef = useRef('map');
 
   const [countries, setCountries] = useState([])
   const [cases, setCases] = useState()
+  const [colourRange, setColourRange] = useState([])
 
   const displayData = (label, code) => {
     // console.log(label)
@@ -69,8 +70,8 @@ const Map = ({countriesList}) => {
           daily_deaths: country.daily_deaths
         }
         if(country.state) info = {...info, country: country.state};
-        list.push(info)
-        values[country.country_code.toUpperCase()] = country.confirmed
+        if(!country.state) list.push(info)
+        if(!country.state) values[country.country_code.toUpperCase()] = country.confirmed
       }
       })
       setCountries(list)
@@ -79,6 +80,37 @@ const Map = ({countriesList}) => {
     
     if(countriesList.length) createData()
   }, [countriesList])
+
+  useEffect(() => {
+    if(countries.length) {
+      const values = {}
+      console.log(selectedStat)
+      countries.forEach(country => {
+        if(country[selectedStat.toLowerCase()] >= 0) {
+          values[country.country_code.toUpperCase()] = country[selectedStat.toLowerCase()]
+        } else {
+          values[country.country_code.toUpperCase()] = 0
+        }
+
+      })
+      console.log(values)
+      setCases(values)
+      switch(selectedStat){
+        case 'Confirmed':
+          setColourRange(['#80bdff', '#0c5aad'])
+          break;
+        case 'Recovered':
+          setColourRange(['#b0ffb9', '#00ab09'])
+          break;
+        case 'Active':
+          setColourRange(['#faff99', '#b1ba00'])
+          break;
+        case 'Deaths':
+          setColourRange(['#FFBCB6', '#B00C22'])
+          break;
+      }
+    }
+  }, [selectedStat])
 
   return (
     <div  className="map-page-container" style={{width: 'calc(90vw - 10px)', height: 705}}>
@@ -95,7 +127,7 @@ const Map = ({countriesList}) => {
         series = {{
           regions: [{
             values: cases,
-            scale: ['#FFBCB6', '#B00C22'],
+            scale: colourRange.length ? colourRange : ['#80bdff', '#0c5aad'],
             normalizeFunction: 'polynomial'
           }]
         }}
@@ -119,21 +151,14 @@ const Map = ({countriesList}) => {
             'font-size': '24',
             'font-weight': 'bold',
             cursor: 'default',
-            // fill: 'green'
           },
           hover: {
             cursor: 'pointer',
-            // fill: 'green'
           }
         }}
-        onRegionTipShow= {function(event, label, code) {
-          // if (code == 'it') {
-          //     event.preventDefault();
-          // } else if (code == 'it') {
-              label.html(() => displayData(label.text(), code));
-          // }
-      }}
-        // onRegionOver={displayData}
+        onRegionTipShow = {function(event, label, code) {
+          label.html(() => displayData(label.text(), code));
+        }}
       />
     </div>
   )

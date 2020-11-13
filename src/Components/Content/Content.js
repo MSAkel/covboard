@@ -17,8 +17,8 @@ function Content({regions, regionsData, countriesList, gs}) {
     <Capsule 
      key={region} 
      styling={selection === region ? "capsule-container active" : 'capsule-container'}
-     region={region} 
-     onSelectRegion={onSelectRegion}
+     selection={region} 
+     onSelection={onSelectRegion}
     />
   ))
 

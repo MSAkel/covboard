@@ -1,11 +1,11 @@
 import {useState, useEffect} from 'react'
 import './Capsule.css';
 
-function Capsule({region, onSelectRegion, styling}) {
+function Capsule({selection, onSelection, styling}) {
   const [active, setActive] = useState(false)
 
   const handleClick = ev => {
-    onSelectRegion(ev.currentTarget.name, setActive)
+    onSelection(ev.currentTarget.name, setActive)
   }
 
   useEffect(() => {
@@ -13,12 +13,12 @@ function Capsule({region, onSelectRegion, styling}) {
 
   return (
     <button 
-      name={region} 
+      name={selection} 
       className={styling} 
       onClick={ev => handleClick(ev)}
     >
       <div className="capsule-content">
-        <h4>{region}</h4>
+        <h4>{selection}</h4>
       </div>
     </button>
   );
