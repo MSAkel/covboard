@@ -28,6 +28,14 @@ function Footer() {
             <InstagramIcon />
           </a>
         </div>
+        <div className="sources">
+          <p>Sources:</p>
+          <a href="https://cov19.cc/"><p>COV19</p></a>
+          <p>|</p>
+          <a href="https://www.cdc.gov/"><p>CDC</p></a>
+          <p>|</p>
+          <a href="https://www.who.int/"><p>WHO</p></a>
+        </div>
       </div>      
     </footer>
   );

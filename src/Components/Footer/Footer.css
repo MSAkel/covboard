@@ -24,8 +24,18 @@ footer{
     margin: 0 0.5rem;
 }
 
-.footer-content p:hover,
-.social-media-links > *:hover{
+.footer-content a:hover,
+.social-media-links > a:hover{
     cursor: pointer;
     color: var(--accent-colour);
+}
+
+.footer-container .sources{
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+}
+
+.footer-container .sources p{
+    margin: 0 0.25rem;
 }
