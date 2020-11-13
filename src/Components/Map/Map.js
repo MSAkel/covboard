@@ -1,6 +1,6 @@
 import React, {useRef, useEffect, useState} from "react"
 import { VectorMap } from "react-jvectormap"
-import ReactCountryFlag from "react-country-flag";
+// import ReactCountryFlag from "react-country-flag";
 
 import './Map.css'
 
@@ -9,32 +9,6 @@ const Map = ({countriesList}) => {
 
   const [countries, setCountries] = useState([])
   const [cases, setCases] = useState()
-
-  const createData = () => {
-    const list = []
-    const values = {}
-    countriesList.forEach(country => {
-      if(country.country){
-      let info = {
-        country_code: country.country_code,
-        country: country.country,
-        confirmed: country.confirmed,
-        daily_confirmed: country.daily_confirmed,
-        recovered: country.recovered,
-        active: country.confirmed - (country.recovered + country.deaths) ,
-        critical: country.critical,
-        deaths: country.deaths,
-        daily_deaths: country.daily_deaths
-      }
-      if(country.state) info = {...info, country: country.state};
-      list.push(info)
-      values[country.country_code.toUpperCase()] = country.confirmed
-    }
-    })
-    // console.log(values)
-    setCountries(list)
-    setCases(values)
-  }
 
   const displayData = (label, code) => {
     // console.log(label)
@@ -78,6 +52,31 @@ const Map = ({countriesList}) => {
   }
 
   useEffect(() => {
+    const createData = () => {
+      const list = []
+      const values = {}
+      countriesList.forEach(country => {
+        if(country.country){
+        let info = {
+          country_code: country.country_code,
+          country: country.country,
+          confirmed: country.confirmed,
+          daily_confirmed: country.daily_confirmed,
+          recovered: country.recovered,
+          active: country.confirmed - (country.recovered + country.deaths) ,
+          critical: country.critical,
+          deaths: country.deaths,
+          daily_deaths: country.daily_deaths
+        }
+        if(country.state) info = {...info, country: country.state};
+        list.push(info)
+        values[country.country_code.toUpperCase()] = country.confirmed
+      }
+      })
+      setCountries(list)
+      setCases(values)
+    }
+    
     if(countriesList.length) createData()
   }, [countriesList])
 

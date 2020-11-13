@@ -3,11 +3,14 @@ import Header from '../../Components/Header/Header';
 import Charts from '../../Components/Charts/Charts';
 import Footer from '../../Components/Footer/Footer';
 
-const ChartsPage = () => {
+const ChartsPage = ({dailyData, countriesList}) => {
   return(
     <>
       <Header />
-      <Charts />
+      <Charts 
+        dailyData={dailyData}
+        countriesList={countriesList} 
+      />
       <Footer />
     </>
   )

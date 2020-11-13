@@ -10,6 +10,7 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    padding: 0.4rem 0;
 }
 .navbar-container .left-side{
     display: flex;
@@ -18,12 +19,14 @@ header{
     align-items: center;
 }
 .navbar-container .left-side img.logo{
-    max-width: 64px;
-    margin-right: 0.25rem;
+    width: 124px;
+    /* margin-right: 2rem; */
+    margin-top: 0.2rem;
 }
 
-.navbar-container .left-side h3{
-    margin-right: 2rem;
+.navbar-container .left-side *{
+    margin-right: 1.5rem;
+    font-size: 1.2rem;
 }
 .navbar-container .left-side h3:hover{
     cursor: pointer;
@@ -37,6 +40,7 @@ header{
 .navbar-container .right-side p{
     margin-right: 2rem;
 }
+
 .coffee-button{
     background-color: transparent;
     border: none;
@@ -46,4 +50,11 @@ header{
 .coffee-img{
     height: 40px;
     width: 150px;
+}
+
+nav a.active{
+    color: var(--accent-colour);
+}
+nav a:hover{
+    color: var(--accent-colour);
 }

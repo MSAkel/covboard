@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   table: {
     maxHeight: 750,
-    // backgroundColor: "#385388",
+    backgroundColor: "#202326",
     borderRadius: 8,
   }
 }));
@@ -174,6 +174,7 @@ function DataTable({countries, regionsData, selection, regionStats}) {
 
   useEffect(() => {
     if(regionsData && selection && countries) filterCountries()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionsData, selection, countries])
 
   return (
