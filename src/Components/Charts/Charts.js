@@ -2,14 +2,14 @@ import {useEffect, useState} from 'react'
 import './Charts.css'
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
-import PerCapita from './PerCapita/PerCapita'
+// import PerCapita from './PerCapita/PerCapita'
 
-const Charts = ({dailyData, countriesList}) => {
+const Charts = ({dailyData, countriesList, countriesDailyData}) => {
   const [data, setData] = useState()
   const [totalConfirmed, setTotalConfirmed] = useState()
-  const [totalRecovered, setTotalRecovered] = useState()
-  const [totalActive, setTotalActive] = useState()
-  const [totalDeaths, setTotalDeaths] = useState()
+  // const [totalRecovered, setTotalRecovered] = useState()
+  // const [totalActive, setTotalActive] = useState()
+  // const [totalDeaths, setTotalDeaths] = useState()
 
   const [totalAll, setTotalAll] = useState()
 
@@ -44,9 +44,9 @@ const Charts = ({dailyData, countriesList}) => {
       totalActive = totalCases - (totalRecovered + totalDeaths)
 
       setTotalConfirmed({name: 'Confirmed', value: totalCases})
-      setTotalRecovered({name: 'Recovered', value: totalRecovered})
-      setTotalActive({name: 'Active', value: totalActive})
-      setTotalDeaths({name: 'Deceased', value: totalDeaths})
+      // setTotalRecovered({name: 'Recovered', value: totalRecovered})
+      // setTotalActive({name: 'Active', value: totalActive})
+      // setTotalDeaths({name: 'Deceased', value: totalDeaths})
 
       setTotalAll([
         {name: 'Recovered', value: totalRecovered},
@@ -56,6 +56,45 @@ const Charts = ({dailyData, countriesList}) => {
       setData(list)
     }
   }, [dailyData])
+
+  useEffect(() => {
+    if(countriesDailyData){
+      let countriesDaily = []
+      for(let country in countriesDailyData) {
+        // countriesDailyData.push(countriesDailyData[country])
+        if(country.includes("unitedstates")) {
+          if(country === 'unitedstates' || country === 'unitedstatesvirginislands') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("unitedkingdom")) {
+          if(country === 'unitedkingdom') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("australia")) {
+          if(country === 'australia') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("china")) {
+          if(country === 'china') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("france")) {
+          if(country === 'france' || country === 'francefrenchpolynesia') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("netherlands")) {
+          if(country === 'netherlands') continue
+          delete countriesDailyData[country]
+        }
+        if(country.includes("canada")) {
+          if(country !== 'canada') continue
+          // delete countriesDailyData[country]
+        }
+
+      }
+      console.log("here",countriesDailyData)
+    }
+  }, [countriesDailyData])
 
   return(
     <div className="charts-container">

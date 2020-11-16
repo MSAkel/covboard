@@ -21,7 +21,7 @@ const GlobalPercent = ({totalAll, totalConfirmed}) => {
           >
             <Pie data={totalAll} outerRadius={100} fill="#8884d8" label={renderLabel}>
               {
-                totalAll.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
+                totalAll.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
               }
             </Pie>
             <Tooltip/>

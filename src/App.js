@@ -14,6 +14,7 @@ function App() {
   const [gs, setGs] = useState()
 
   const [dailyData, setDailyData] = useState()
+  const [countriesDailyData, setCountriesDailyData] = useState()
 
   useEffect(() => {
     const getStats = async() => {
@@ -37,8 +38,6 @@ function App() {
     }
 
     const getDailyData = async() => {
-      // const today = new Date().toISOString().slice(0, 10)
-      // const URL = `https://covidtrackerapi.bsg.ox.ac.uk/api/v2/stringency/date-range/2020-11-01/${today}`
       const URL = `https://cov19.cc/trend.json`
       const data = await fetch(URL)
       .then(res => {
@@ -51,10 +50,21 @@ function App() {
       }
     }
 
+    const getCountriesDailyData = async() => {
+      const URL = "https://cov19.cc/trend.json"
+      const data = await fetch(URL)
+      .then(res => {
+        if(!res.ok) throw new Error("Woops")
+        return res.json()
+      })
+      setCountriesDailyData(data)
+    }
+
     if(!countriesList.length) getStats()
     if(!dailyData) getDailyData()
+    if(!countriesDailyData) getCountriesDailyData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
 
   return (
     <Router>
@@ -76,6 +86,7 @@ function App() {
           <ChartsPage 
             dailyData={dailyData}
             countriesList={countriesList} 
+            countriesDailyData={countriesDailyData}
           />
         </Route>
       </Switch>

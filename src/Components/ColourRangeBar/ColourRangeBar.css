@@ -1,0 +1,39 @@
+.colour-bar-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 4rem 0;
+}
+
+.range-bar {
+  width: 90px;
+  height: 15px;
+}
+
+.range-bar:nth-of-type(1){
+  background: #FFF;
+  margin-right: 2rem;
+}
+.range-bar:nth-of-type(2){
+  background: #ffffcc;
+}
+
+.range-bar:nth-of-type(3){
+  background: #c7e9b4;
+}
+
+.range-bar:nth-of-type(4){
+  background: #7fcdbb;
+}
+
+.range-bar:nth-of-type(5){
+  background: #41b6c4;
+}
+
+.range-bar:nth-of-type(6){
+  background: #2c7fb8;
+}
+.range-bar:nth-of-type(7){
+  background: #253494;
+}

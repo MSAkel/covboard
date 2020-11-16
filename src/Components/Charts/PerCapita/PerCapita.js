@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {ResponsiveContainer, ScatterChart, Scatter, LabelList, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 
 const PerCapita = ({countriesList}) => {
   const [data, setData]= useState()
