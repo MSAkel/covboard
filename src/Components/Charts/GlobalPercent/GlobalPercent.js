@@ -29,7 +29,7 @@ const GlobalPercent = ({totalAll, totalConfirmed}) => {
       {totalAll && 
         <ResponsiveContainer width='100%' height={400}>
           <PieChart >
-            <Pie dataKey="value" data={totalAll} outerRadius={100} fill="#8884d8" label={renderLabel}>
+            <Pie dataKey="value" data={totalAll} outerRadius='55%' fill="#8884d8" label={renderLabel}>
               {
                 totalAll.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)
               }

@@ -1,0 +1,11 @@
+.note{
+    margin: 1rem auto 0;
+    background-color: var(--secondary-colour);
+    width: 90%;
+    border-radius: 8px;
+}
+
+.note p{
+    /* text-align: center; */
+    padding: 0.75rem 1rem;
+}

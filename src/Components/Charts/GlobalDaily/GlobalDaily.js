@@ -94,9 +94,9 @@ const GlobalDaily = ({data}) => {
           <XAxis dataKey="date" tick={{ angle: -15 }} dy={8} height={50} />
           <YAxis />
           <Tooltip content={<CustomTooltip />} />
-          {displayConfirmed && <Line type="monotone" dataKey="confirmed" stroke="#5078AA" dot={{ stroke: 'none', fill: '#5078AA', r: 2 }}/>}
-          {displayRecovered && <Line type="monotone" dataKey="recovered" stroke="#74FFA7" dot={{ stroke: 'none', fill: '#74FFA7', r: 2 }}/>}
-          {displayDeaths && <Line type="monotone" dataKey="deaths" stroke="#FF6060" dot={{ stroke: 'none', fill: '#FF6060', r: 2 }}/>}
+          {displayConfirmed && <Line type="monotone" dataKey="confirmed" stroke="#5078AA" dot={{ stroke: 'none', fill: '#5078AA', r: 1.5 }}/>}
+          {displayRecovered && <Line type="monotone" dataKey="recovered" stroke="#74FFA7" dot={{ stroke: 'none', fill: '#74FFA7', r: 1.5 }}/>}
+          {displayDeaths && <Line type="monotone" dataKey="deaths" stroke="#FF6060" dot={{ stroke: 'none', fill: '#FF6060', r: 1.5 }}/>}
           </LineChart>
         </ResponsiveContainer>
       }
