@@ -5,8 +5,8 @@
   grid-template-columns: 1fr 1fr 1fr 2fr;
   grid-template-rows: auto;
   grid-template-areas:
-  "globalTotal globalTotal globalTotal globalPercent"
-  "globalDaily globalDaily globalDaily .";
+  "globalDaily globalDaily globalDaily globalDaily"
+  "globalTotal globalTotal globalTotal globalPercent";
   max-width: 90%;
   margin: 0 auto;
 }
@@ -55,4 +55,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.checkbox-container{
+  text-align: center;
 }
