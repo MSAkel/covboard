@@ -2,15 +2,12 @@ import {useEffect, useState} from 'react'
 import './Charts.css'
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
+import GlobalDaily from './GlobalDaily/GlobalDaily'
 // import PerCapita from './PerCapita/PerCapita'
 
 const Charts = ({dailyData, countriesList, countriesDailyData}) => {
   const [data, setData] = useState()
   const [totalConfirmed, setTotalConfirmed] = useState()
-  // const [totalRecovered, setTotalRecovered] = useState()
-  // const [totalActive, setTotalActive] = useState()
-  // const [totalDeaths, setTotalDeaths] = useState()
-
   const [totalAll, setTotalAll] = useState()
 
   useEffect(() => {
@@ -37,9 +34,9 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
         world[date].date = date
         list.push(world[date])
 
-        totalCases += world[date].confirmed
-        totalRecovered += world[date].recovered
-        totalDeaths += world[date].deaths
+        totalCases = world[date].confirmed
+        totalRecovered = world[date].recovered
+        totalDeaths = world[date].deaths
       }
       totalActive = totalCases - (totalRecovered + totalDeaths)
 
@@ -54,52 +51,75 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
         {name: 'Deceased', value: totalDeaths}
       ])
       setData(list)
+      console.log("list is", list)
     }
   }, [dailyData])
 
-  useEffect(() => {
-    if(countriesDailyData){
-      let countriesDaily = []
-      for(let country in countriesDailyData) {
-        // countriesDailyData.push(countriesDailyData[country])
-        if(country.includes("unitedstates")) {
-          if(country === 'unitedstates' || country === 'unitedstatesvirginislands') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("unitedkingdom")) {
-          if(country === 'unitedkingdom') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("australia")) {
-          if(country === 'australia') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("china")) {
-          if(country === 'china') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("france")) {
-          if(country === 'france' || country === 'francefrenchpolynesia') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("netherlands")) {
-          if(country === 'netherlands') continue
-          delete countriesDailyData[country]
-        }
-        if(country.includes("canada")) {
-          if(country !== 'canada') continue
-          // delete countriesDailyData[country]
-        }
-
+  const removeStates = () => {
+    let CanadianProvinces = []
+    for(let country in countriesDailyData) {
+      if(country.includes("unitedstates")) {
+        if(country === 'unitedstates' || country === 'unitedstatesvirginislands') continue
+        delete countriesDailyData[country]
       }
-      console.log("here",countriesDailyData)
+      if(country.includes("unitedkingdom")) {
+        if(country === 'unitedkingdom') continue
+        delete countriesDailyData[country]
+      }
+      if(country.includes("australia")) {
+        if(country === 'australia') continue
+        delete countriesDailyData[country]
+      }
+      if(country.includes("china")) {
+        if(country === 'china') continue
+        delete countriesDailyData[country]
+      }
+      if(country.includes("france")) {
+        if(country === 'france' || country === 'francefrenchpolynesia') continue
+        delete countriesDailyData[country]
+      }
+      if(country.includes("netherlands")) {
+        if(country === 'netherlands') continue
+        delete countriesDailyData[country]
+      }
+      if(country.includes("canada")) {
+        if(country !== "canadadiamondprincess" && country !== "canadagrandprincess") {
+          CanadianProvinces.push(countriesDailyData[country])
+          delete countriesDailyData[country]
+        } else {
+          delete countriesDailyData[country]
+        }
+      }
     }
+    countriesDailyData.canada = mergeCanadianProvinces(CanadianProvinces)
+  }
+
+  const mergeCanadianProvinces = CanadianProvinces => {
+    let canada = CanadianProvinces[0]
+    CanadianProvinces.splice(0, 1) 
+    CanadianProvinces.forEach(prov => {
+      for(let day in prov) {
+        if(canada[day]){         
+          if(canada[day].confirmed)  canada[day].confirmed += prov[day].confirmed >= 0 ? prov[day].confirmed : 0
+          if(!canada[day].confirmed) canada[day].confirmed = prov[day].confirmed >= 0 ? prov[day].confirmed : 0
+          if(canada[day].deaths) canada[day].deaths += prov[day].deaths >= 0 ? prov[day].deaths : 0
+          if(!canada[day].deaths) canada[day].deaths = prov[day].deaths >= 0 ? prov[day].deaths : 0
+          
+        }
+      }
+    });
+    return(canada)
+  }
+
+  useEffect(() => {
+    if(countriesDailyData) removeStates()
   }, [countriesDailyData])
 
   return(
     <div className="charts-container">
       <GlobalTotal data={data}/>
       <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
+      <GlobalDaily data={data}/>
       {/* <PerCapita countriesList={countriesList}/> */}
     </div>
   )
