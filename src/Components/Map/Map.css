@@ -26,6 +26,10 @@ path.jvectormap-region {
     z-index:11;
 }
 
+.map-size{
+
+}
+
 .jvectormap-tip h1 {
     margin: 1rem 0 1rem 0.2rem;
 }
@@ -54,3 +58,15 @@ path.jvectormap-region {
  .region-data {
     width: 100px;
  }
+
+ /* @media (min-width: 768px){
+    .map-page-container.map-size{
+        height: calc(75vh - 5px);
+    }
+ }
+
+ @media (min-width: 1200px){
+    .map-page-container.map-size{
+        height: calc(75vh - 5px);
+    }
+} */

@@ -1,13 +1,8 @@
 .charts-container{
   /* display: flex;
   flex-wrap: wrap; */
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-  "globalDaily globalDaily globalDaily globalDaily"
-  "globalTotal globalTotal globalTotal globalPercent";
-  max-width: 90%;
+
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -59,4 +54,22 @@
 
 .checkbox-container{
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .charts-container{
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .charts-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "globalDaily globalDaily globalDaily globalDaily"
+    "globalTotal globalTotal globalTotal globalPercent";
+    max-width: 90%;
+  }
 }

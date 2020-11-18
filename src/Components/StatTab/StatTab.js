@@ -16,7 +16,7 @@ const StatTab = ({selection, setSelection}) => {
   const statsCapsules = stats.map((stat =>
     <Capsule 
       key={stat.name} 
-      styling={selection === stat.name ? "capsule-container active" : 'capsule-container'}
+      styling={selection === stat.name ? "capsule-container map-cap" : 'capsule-container'}
       selection={stat.name} 
       onSelection={onSelectStat}
     />

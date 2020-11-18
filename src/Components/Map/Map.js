@@ -149,9 +149,10 @@ const Map = ({countriesList, selectedStat, setRange, setColours}) => {
   }, [selectedStat, countries])
 // .length ? colourRange :['#C8EEFF', '#0071A4']
   return (
-    <div  className="map-page-container" style={{width: 'calc(90vw - 10px)', height: 705}}>
+    <div  className="map-page-container map-size" style={{width: 'calc(90vw - 10px)', height: 'calc(75vh - 5px)'}}>
       <VectorMap 
         map={'world_mill'}
+        // zoomButtons={false}
         backgroundColor="none"
         zoomOnScroll={true}
         // ref={inputRef}

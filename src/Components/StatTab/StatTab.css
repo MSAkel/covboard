@@ -10,3 +10,19 @@
     /* background-color: var(--secondary-colour); */
     border-radius: 12px;
 }
+
+.capsule-container.map-cap:nth-of-type(1){
+    background-color: #2D4164;
+}
+
+.capsule-container.map-cap:nth-of-type(2){
+    background-color: #086738;
+}
+
+.capsule-container.map-cap:nth-of-type(3){
+    background-color: #760F72;
+}
+
+.capsule-container.map-cap:nth-of-type(4){
+    background-color: #AC0225;
+}
