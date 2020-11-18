@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import './Charts.css'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
 import GlobalDaily from './GlobalDaily/GlobalDaily'
@@ -117,10 +118,20 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
 
   return(
     <div className="charts-container">
-      <GlobalTotal data={data}/>
-      <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
-      <GlobalDaily data={data}/>
-      {/* <PerCapita countriesList={countriesList}/> */}
+      {!data ?
+       ( 
+        <div className="spinner-container">
+          <CircularProgress color="secondary" /> 
+        </div>
+       )
+       : (
+      <>
+        <GlobalTotal data={data}/>
+        <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
+        <GlobalDaily data={data}/>
+      </>
+      )
+    }
     </div>
   )
 
