@@ -24,7 +24,6 @@ const RecoveredCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-
 const DeathsCheckBox = withStyles({
   root: {
     color: '#FF6060',
@@ -65,7 +64,7 @@ const GlobalTotal = ({data}) => {
           }}
           >
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
-          <XAxis dataKey="date" tick={{ angle: -15 }} dy={8} height={50} />
+          <XAxis dataKey="dateShort" tick={{ angle: -15 }} dy={8} height={50} interval='preserveStartEnd'/>
           <YAxis />
           <Tooltip content={<CustomTooltip />} />
           {/* <Legend /> */}

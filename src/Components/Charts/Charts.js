@@ -25,6 +25,7 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
       let totalRecovered = 0
       let totalActive = 0
       let totalDeaths = 0
+      let year = ''
 
       for(let date in world) {
         const active = world[date].confirmed - (world[date].recovered + world[date].deaths)
@@ -38,6 +39,17 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
         totalCases = world[date].confirmed
         totalRecovered = world[date].recovered
         totalDeaths = world[date].deaths
+
+         //Date
+         let newDate = new Date(world[date].date);
+         let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][newDate.getMonth()];
+         if(parseInt(year) != parseInt(newDate.getFullYear())){
+          world[date].dateShort = `${month} ${newDate.getDate()}, ${newDate.getFullYear()}`
+         } else {
+          world[date].dateShort = `${month} ${newDate.getDate()}`
+         }
+         year = newDate.getFullYear()
       }
       totalActive = totalCases - (totalRecovered + totalDeaths)
 
@@ -51,8 +63,9 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
         {name: 'Active', value: totalActive},
         {name: 'Deceased', value: totalDeaths}
       ])
+      
+      list[list.length - 1].dateShort = list[list.length - 1].dateShort + ` ${year}`
       setData(list)
-      console.log("list is", list)
     }
   }, [dailyData])
 

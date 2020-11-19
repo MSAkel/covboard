@@ -24,7 +24,6 @@ const RecoveredCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-
 const DeathsCheckBox = withStyles({
   root: {
     color: '#FF6060',
@@ -60,6 +59,7 @@ const GlobalDaily = ({data}) => {
       let lastConfirmed = 0
       let lastRecovered = 0
       let lastDeaths = 0
+      let year = ''
       for(let day in dataCopy) {
         //Confirmed
         let currentConfirmed = JSON.parse(JSON.stringify(dataCopy[day].confirmed)) 
@@ -75,8 +75,21 @@ const GlobalDaily = ({data}) => {
         let currentDeaths = JSON.parse(JSON.stringify(dataCopy[day].deaths)) 
         dataCopy[day].deaths = currentDeaths - lastDeaths
         lastDeaths = currentDeaths
+
+        // //Date
+        // let newDate = new Date(dataCopy[day].date);
+        // let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        // "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][newDate.getMonth()];
+        // if(parseInt(year) != parseInt(newDate.getFullYear())){
+        //   dataCopy[day].dateShort = `${month} ${newDate.getDay() +1}, ${newDate.getFullYear()}`
+        // } else {
+        //   dataCopy[day].dateShort = `${month} ${newDate.getDay() +1}`
+        // }
+        // year = newDate.getFullYear()
       }
+      // dataCopy[dataCopy.length - 1].dateShort = dataCopy[dataCopy.length - 1].dateShort + ` ${year}`
       setDailyData(dataCopy)
+
     }
   }, [data])
 
@@ -91,7 +104,7 @@ const GlobalDaily = ({data}) => {
                   top: 15, right: 10, left: 20, bottom: 5,
               }}
           >
-          <XAxis dataKey="date" tick={{ angle: -15 }} dy={8} height={50} />
+          <XAxis dataKey="dateShort" tick={{ angle: -15 }} dy={8} height={50} interval='preserveStartEnd'/>
           <YAxis />
           <Tooltip content={<CustomTooltip />} />
           {displayConfirmed && <Line type="monotone" dataKey="confirmed" stroke="#5078AA" dot={{ stroke: 'none', fill: '#5078AA', r: 1.5 }}/>}
