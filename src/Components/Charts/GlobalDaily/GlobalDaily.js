@@ -59,7 +59,6 @@ const GlobalDaily = ({data}) => {
       let lastConfirmed = 0
       let lastRecovered = 0
       let lastDeaths = 0
-      let year = ''
       for(let day in dataCopy) {
         //Confirmed
         let currentConfirmed = JSON.parse(JSON.stringify(dataCopy[day].confirmed)) 
@@ -77,7 +76,6 @@ const GlobalDaily = ({data}) => {
         lastDeaths = currentDeaths
       }
       setDailyData(dataCopy)
-
     }
   }, [data])
 

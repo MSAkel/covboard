@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import ColourRangeBar from "../../Components/ColourRangeBar/ColourRangeBar";
+// import ColourRangeBar from "../../Components/ColourRangeBar/ColourRangeBar";
 import Header from '../../Components/Header/Header';
 // import Footer from '../../Components/Footer/Footer';
 import Map from "../../Components/Map/Map";

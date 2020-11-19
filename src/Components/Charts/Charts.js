@@ -4,15 +4,15 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
 import GlobalDaily from './GlobalDaily/GlobalDaily'
-import CountriesDaily from './CountriesDaily/CountriesDaily';
+// import CountriesDaily from './CountriesDaily/CountriesDaily';
 // import PerCapita from './PerCapita/PerCapita'
 
-const Charts = ({dailyData, countriesList, countriesDailyData}) => {
+const Charts = ({dailyData, countriesDailyData}) => {
   const [data, setData] = useState()
   const [totalConfirmed, setTotalConfirmed] = useState()
   const [totalAll, setTotalAll] = useState()
 
-  const [countriesData, setCountriesData] = useState()
+  // const [countriesData, setCountriesData] = useState()
 
   useEffect(() => {
     if(dailyData) {
@@ -110,8 +110,8 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
     }
     countriesDailyData.canada = mergeCanadianProvinces(CanadianProvinces)
 
-    setCountriesData(countriesDailyData)
-    console.log(countriesDailyData)
+    // setCountriesData(countriesDailyData)
+    // console.log(countriesDailyData)
   }
 
   const mergeCanadianProvinces = CanadianProvinces => {
@@ -133,6 +133,7 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
 
   useEffect(() => {
     if(countriesDailyData) removeStates()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countriesDailyData])
 
   return(

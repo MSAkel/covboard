@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, Legend} from 'recharts';
+import {ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip} from 'recharts';
 import { withStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
