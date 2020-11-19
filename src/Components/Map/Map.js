@@ -1,10 +1,10 @@
-import React, {useRef, useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import { VectorMap } from "react-jvectormap"
 // import ReactCountryFlag from "react-country-flag";
 
 import './Map.css'
 
-const Map = ({countriesList, selectedStat, setRange, setColours}) => {
+const Map = ({countriesList, selectedStat}) => {
   // const inputRef = useRef(null);
   const [countries, setCountries] = useState([])
   const [cases, setCases] = useState()

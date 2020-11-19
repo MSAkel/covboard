@@ -1,4 +1,4 @@
-const CountriesDaily = () => {
+const CountriesTotal = () => {
     return(
         <div>
             
@@ -6,4 +6,4 @@ const CountriesDaily = () => {
     )
 }
 
-export default CountriesDaily
+export default CountriesTotal

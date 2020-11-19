@@ -75,19 +75,7 @@ const GlobalDaily = ({data}) => {
         let currentDeaths = JSON.parse(JSON.stringify(dataCopy[day].deaths)) 
         dataCopy[day].deaths = currentDeaths - lastDeaths
         lastDeaths = currentDeaths
-
-        // //Date
-        // let newDate = new Date(dataCopy[day].date);
-        // let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        // "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][newDate.getMonth()];
-        // if(parseInt(year) != parseInt(newDate.getFullYear())){
-        //   dataCopy[day].dateShort = `${month} ${newDate.getDay() +1}, ${newDate.getFullYear()}`
-        // } else {
-        //   dataCopy[day].dateShort = `${month} ${newDate.getDay() +1}`
-        // }
-        // year = newDate.getFullYear()
       }
-      // dataCopy[dataCopy.length - 1].dateShort = dataCopy[dataCopy.length - 1].dateShort + ` ${year}`
       setDailyData(dataCopy)
 
     }

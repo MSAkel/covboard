@@ -9,8 +9,8 @@ import './MapPage.css'
 
 function MapPage({countriesList}) {
   const [selection, setSelection] = useState("Confirmed")
-  const [range, setRange] = useState()
-  const [colours, setColours] = useState()
+  // const [range, setRange] = useState()
+  // const [colours, setColours] = useState()
 
   return (
     <>
@@ -22,8 +22,8 @@ function MapPage({countriesList}) {
       <Map 
         countriesList={countriesList} 
         selectedStat={selection}
-        setRange={setRange}
-        setColours={setColours}
+        // setRange={setRange}
+        // setColours={setColours}
       />
       {/* <ColourRangeBar 
         range={range} 

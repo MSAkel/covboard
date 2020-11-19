@@ -4,12 +4,15 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
 import GlobalDaily from './GlobalDaily/GlobalDaily'
+import CountriesDaily from './CountriesDaily/CountriesDaily';
 // import PerCapita from './PerCapita/PerCapita'
 
 const Charts = ({dailyData, countriesList, countriesDailyData}) => {
   const [data, setData] = useState()
   const [totalConfirmed, setTotalConfirmed] = useState()
   const [totalAll, setTotalAll] = useState()
+
+  const [countriesData, setCountriesData] = useState()
 
   useEffect(() => {
     if(dailyData) {
@@ -44,7 +47,7 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
          let newDate = new Date(world[date].date);
          let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][newDate.getMonth()];
-         if(parseInt(year) != parseInt(newDate.getFullYear())){
+         if(parseInt(year) !== parseInt(newDate.getFullYear())){
           world[date].dateShort = `${month} ${newDate.getDate()}, ${newDate.getFullYear()}`
          } else {
           world[date].dateShort = `${month} ${newDate.getDate()}`
@@ -106,6 +109,9 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
       }
     }
     countriesDailyData.canada = mergeCanadianProvinces(CanadianProvinces)
+
+    setCountriesData(countriesDailyData)
+    console.log(countriesDailyData)
   }
 
   const mergeCanadianProvinces = CanadianProvinces => {
@@ -142,6 +148,7 @@ const Charts = ({dailyData, countriesList, countriesDailyData}) => {
         <GlobalTotal data={data}/>
         <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
         <GlobalDaily data={data}/>
+        {/* <CountriesDaily countriesData={countriesData}/> */}
       </>
       )
     }
