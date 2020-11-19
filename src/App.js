@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import MainPage from './Pages/MainPage/MainPage';
 import MapPage from './Pages/Map/MapPage';
 import ChartsPage from './Pages/Charts/ChartsPage';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 
 import './App.css';
 
@@ -69,7 +69,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/covcharts">
+        <Route exact path="/">
+          <Redirect to="/covcharts" />
+        </Route>
+        <Route path="/covcharts">
           <MainPage 
             regions={regions} 
             regionsData={regionsData} 
