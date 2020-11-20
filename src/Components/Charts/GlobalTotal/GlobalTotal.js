@@ -56,7 +56,7 @@ const GlobalTotal = ({data}) => {
     <div className="chart-container global-total">
       <h2 className="chart-title">Global Cumulative Cases</h2>
       {data && 
-        <ResponsiveContainer width='100%' height={400}>
+        <ResponsiveContainer width='100%' height={window.innerWidth > 420 ? 400 : 250}>
           <AreaChart
           data={data}
           margin={{

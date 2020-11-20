@@ -2,7 +2,7 @@
   /* display: flex;
   flex-wrap: wrap; */
 
-  max-width: 90%;
+  max-width: 85%;
   margin: 0 auto;
 }
 
@@ -59,6 +59,25 @@
 
 .checkbox-container{
   text-align: center;
+}
+.pie-legend{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.pie-legend > div{
+  display: flex;
+  flex-direction: row;
+}
+
+
+.box-colour-code{
+  height: 20px;
+  width: 20px;
+  margin-right: 0.5rem;
+  border-radius: 4px;
 }
 
 @media (min-width: 768px) {

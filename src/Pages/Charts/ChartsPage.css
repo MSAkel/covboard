@@ -1,7 +1,7 @@
 .note{
     margin: 1rem auto 0;
     background-color: var(--secondary-colour);
-    width: 90%;
+    width: 85%;
     border-radius: 8px;
 }
 
@@ -9,3 +9,9 @@
     /* text-align: center; */
     padding: 0.75rem 1rem;
 }
+
+@media (min-width: 768px) {
+    .note{
+        width: 90%;
+    }
+  }

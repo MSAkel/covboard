@@ -4,7 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import GlobalTotal from './GlobalTotal/GlobalTotal'
 import GlobalPercent from './GlobalPercent/GlobalPercent'
 import GlobalDaily from './GlobalDaily/GlobalDaily'
-// import CountriesDaily from './CountriesDaily/CountriesDaily';
+import CountriesDaily from './CountriesDaily/CountriesDaily';
 // import PerCapita from './PerCapita/PerCapita'
 
 const Charts = ({dailyData, countriesDailyData}) => {
@@ -12,8 +12,8 @@ const Charts = ({dailyData, countriesDailyData}) => {
   const [totalConfirmed, setTotalConfirmed] = useState()
   const [totalAll, setTotalAll] = useState()
 
-  // const [countriesData, setCountriesData] = useState()
-  // const [countriesList, setCountriesList] = useState()
+  const [countriesList, setCountriesList] = useState()
+  const [countriesDailyConfirmed, setCountriesDailyConfirmed] = useState()
 
   useEffect(() => {
     if(dailyData) {
@@ -58,9 +58,6 @@ const Charts = ({dailyData, countriesDailyData}) => {
       totalActive = totalCases - (totalRecovered + totalDeaths)
 
       setTotalConfirmed({name: 'Confirmed', value: totalCases})
-      // setTotalRecovered({name: 'Recovered', value: totalRecovered})
-      // setTotalActive({name: 'Active', value: totalActive})
-      // setTotalDeaths({name: 'Deceased', value: totalDeaths})
 
       setTotalAll([
         {name: 'Recovered', value: totalRecovered},
@@ -111,14 +108,36 @@ const Charts = ({dailyData, countriesDailyData}) => {
     }
     countriesDailyData.canada = mergeCanadianProvinces(CanadianProvinces)
 
-    // let _countriesDailyData = []
     let countries = []
+    let countriesDailyConfirmed = []
+
     for(let country in countriesDailyData){
-      // _countriesDailyData.push(countriesDailyData[country])
-      countries.push({name: country})
+      if(country === 'world') continue
+      if(country === 'canada' || country === 'france' || country === 'unitedkingdom'){
+        countries.push({name: country, active: true})
+      } else {
+        countries.push({name: country, active: false})
+
+      }
+
+      let countryDay = countriesDailyData[country]
+      for(let day in countryDay) {
+        if(!countriesDailyConfirmed.some(date => date.day === day)) {
+          let obj = {
+            day: day,
+            [country]: countryDay[day].confirmed
+          }
+          countriesDailyConfirmed.push(obj)
+        }  else {
+          let index = countriesDailyConfirmed.findIndex(date => date.day === day);
+          countriesDailyConfirmed[index][country] = countryDay[day].confirmed
+        }
+      }
     }
-    // setCountriesData(countriesDailyData)
-    // setCountriesList(countries)
+    countriesDailyConfirmed.sort((a,b) => (a.day > b.day) ? 1 : ((b.day > a.day) ? -1 : 0));
+    setCountriesDailyConfirmed(countriesDailyConfirmed)
+
+    setCountriesList(countries)
   }
 
   const mergeCanadianProvinces = CanadianProvinces => {
@@ -156,7 +175,7 @@ const Charts = ({dailyData, countriesDailyData}) => {
         <GlobalTotal data={data}/>
         <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
         <GlobalDaily data={data} />
-        {/* <CountriesDaily countriesData={countriesData} countries={countriesList}/> */}
+        {/* <CountriesDaily countriesDailyConfirmed={countriesDailyConfirmed} countries={countriesList}/> */}
       </>
       )
     }
