@@ -3,12 +3,7 @@ import {ResponsiveContainer, Cell, Tooltip, PieChart, Pie} from 'recharts';
 
 const COLORS = ['#74FFA7', '#FFF072', '#FF6060'];
 
-const GlobalPercent = ({totalAll, totalConfirmed}) => {
-  //Labels on pie chart
-  // const renderLabel = (entry) => {
-  //   let label = `${entry.name}: ${((entry.value/totalConfirmed.value)*100).toFixed(1)}%`;
-  //   return label;
-  // }
+const GlobalPercent = ({totalAll}) => {
   const RADIAN = Math.PI / 180;  
   const renderLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
