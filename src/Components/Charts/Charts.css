@@ -38,6 +38,10 @@
   grid-area: perCapitaConfirmed;
 }
 
+.country-daily{
+  grid-area: country-daily;
+}
+
 .tooltip{
   background: var(--primary-colour);
   padding: 0.5rem;
@@ -74,7 +78,8 @@
     grid-template-rows: auto;
     grid-template-areas:
     "globalDaily globalDaily globalDaily globalDaily"
-    "globalTotal globalTotal globalTotal globalPercent";
+    "globalTotal globalTotal globalTotal globalPercent"
+    "country-daily country-daily country-daily country-daily";
     /* max-width: 90%; */
   }
 

@@ -13,6 +13,7 @@ const Charts = ({dailyData, countriesDailyData}) => {
   const [totalAll, setTotalAll] = useState()
 
   // const [countriesData, setCountriesData] = useState()
+  // const [countriesList, setCountriesList] = useState()
 
   useEffect(() => {
     if(dailyData) {
@@ -110,8 +111,14 @@ const Charts = ({dailyData, countriesDailyData}) => {
     }
     countriesDailyData.canada = mergeCanadianProvinces(CanadianProvinces)
 
+    // let _countriesDailyData = []
+    let countries = []
+    for(let country in countriesDailyData){
+      // _countriesDailyData.push(countriesDailyData[country])
+      countries.push({name: country})
+    }
     // setCountriesData(countriesDailyData)
-    // console.log(countriesDailyData)
+    // setCountriesList(countries)
   }
 
   const mergeCanadianProvinces = CanadianProvinces => {
@@ -148,8 +155,8 @@ const Charts = ({dailyData, countriesDailyData}) => {
       <>
         <GlobalTotal data={data}/>
         <GlobalPercent totalAll={totalAll} totalConfirmed={totalConfirmed}/>
-        <GlobalDaily data={data}/>
-        {/* <CountriesDaily countriesData={countriesData}/> */}
+        <GlobalDaily data={data} />
+        {/* <CountriesDaily countriesData={countriesData} countries={countriesList}/> */}
       </>
       )
     }

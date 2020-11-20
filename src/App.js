@@ -70,9 +70,9 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Redirect to="/covcharts" />
+          <Redirect to="/dashboard" />
         </Route>
-        <Route path="/covcharts">
+        <Route path="/dashboard">
           <MainPage 
             regions={regions} 
             regionsData={regionsData} 

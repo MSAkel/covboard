@@ -76,12 +76,13 @@ const GlobalDaily = ({data}) => {
         lastDeaths = currentDeaths
       }
       setDailyData(dataCopy)
+      console.log(dataCopy)
     }
   }, [data])
 
   return(
     <div className="chart-container global-daily">
-      <h2 className="chart-title">Global daily cases</h2>
+      <h2 className="chart-title">Global Daily Cases</h2>
       {dailyData && 
         <ResponsiveContainer width='100%' height={400}>
           <LineChart

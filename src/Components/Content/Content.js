@@ -65,7 +65,7 @@ function Content({regions, regionsData, countriesList, gs}) {
               <h1>{selection}</h1>
             </div>
             <div className="cards">
-              <StatContainer title="Confirmed cases" total={stats && stats.confirmed > 0 ? stats.confirmed.toLocaleString() : "No data"}/>
+              <StatContainer title="Confirmed Cases" total={stats && stats.confirmed > 0 ? stats.confirmed.toLocaleString() : "No data"}/>
               <StatContainer title="Recovered" total={stats && stats.recovered > 0 ? stats.recovered.toLocaleString() : "No data"}/>
               <StatContainer title="Active Cases" total={stats && (stats.confirmed - (stats.recovered + stats.deaths)) > 0 ? (stats.confirmed - (stats.recovered + stats.deaths)).toLocaleString() : "No data"}/>
               <StatContainer title="Critical" total={stats && stats.critical > 0 ? stats.critical.toLocaleString() : "No data"}/>

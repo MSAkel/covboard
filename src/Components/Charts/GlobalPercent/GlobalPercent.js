@@ -25,7 +25,7 @@ const GlobalPercent = ({totalAll, totalConfirmed}) => {
 
   return(
     <div className="chart-container pie-chart">
-      <h2 className="chart-title">Global Percentage</h2>
+      <h2 className="chart-title">Global Cumulative Percentage</h2>
       {totalAll && 
         <ResponsiveContainer width='100%' height={400}>
           <PieChart >

@@ -11,7 +11,6 @@ const Map = ({countriesList, selectedStat}) => {
   const [colourRange, setColourRange] = useState([])
 
   const displayData = (label, code) => {
-    // console.log(label)
     const country = countries.find(country => country.country_code.toUpperCase() === code)
     if(country){
       if(code === country.country_code.toUpperCase()) {
@@ -56,7 +55,6 @@ const Map = ({countriesList, selectedStat}) => {
     if(countries.length) {
       const values = {}
       const valuesArr = []
-      // console.log(countries)
       countries.forEach(country => {
         if(country[selectedStat.toLowerCase()] >= 0) {
           values[country.country_code.toUpperCase()] = country[selectedStat.toLowerCase()]
@@ -86,32 +84,6 @@ const Map = ({countriesList, selectedStat}) => {
     }
   }
 
-  /**
-   * Set the range of each colour bar
-   * @param {string} selection the selected stat to display 
-   * @param {*} maxValue The highest value of the selected stat, based off the countries list
-   */
-  // const setRangeValues = (colourRange, maxValue, valuesArr) => {
-  //   console.log(maxValue)
-  //   // setColours(colourRange)
-  //   // valueRange = []
-  //   let sum = valuesArr.reduce((a, b) => a + b, 0)
-  //   let mean = sum/valuesArr.length
-  //   // console.log(mean.toFixed())
-  //   const differenceArr = []
-  //   for(let value of valuesArr) {
-  //     let difference = value - mean
-  //     let differencePow = Math.pow(difference, 2)
-  //     differenceArr.push(differencePow)
-  //   }
-  //   // console.log(differenceArr)
-  //   let differenceSum = differenceArr.reduce((a, b) => a + b, 0)
-  //   let variance = (differenceSum/valuesArr.length).toFixed()
-  //   console.log(variance)
-  //   let standardDeviation = Math.sqrt(variance)
-  //   console.log(standardDeviation.toFixed())
-  // }
-
   useEffect(() => {
     const createData = () => {
       const list = []
@@ -135,8 +107,6 @@ const Map = ({countriesList, selectedStat}) => {
       }
       })
       setCountries(list)
-      // setCases(values)
-      // setBarsValues()
     }
     
     if(countriesList.length) createData()
@@ -147,7 +117,6 @@ const Map = ({countriesList, selectedStat}) => {
     setBarsValues()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedStat, countries])
-// .length ? colourRange :['#C8EEFF', '#0071A4']
   return (
     <div  className="map-page-container map-size" style={{width: 'calc(90vw - 10px)', height: 'calc(75vh - 5px)'}}>
       <VectorMap 

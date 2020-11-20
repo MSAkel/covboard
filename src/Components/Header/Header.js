@@ -7,8 +7,8 @@ function Header() {
     <header>
         <nav className="navbar-container">
             <div className="left-side">
-              <NavLink to="/covcharts"><img src={logo} className="logo" alt="logo"/></NavLink >
-              <NavLink to="/covcharts"><p>Dashboard</p></NavLink >
+              <NavLink to="/dashboard"><img src={logo} className="logo" alt="logo"/></NavLink >
+              <NavLink to="/dashboard"><p>Dashboard</p></NavLink >
               <NavLink to="/map"><p>Map</p></NavLink >
               <NavLink to="/charts" ><p>Charts</p></NavLink >
             </div>
